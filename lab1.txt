@@ -1,0 +1,179 @@
+Joshua Rinaldi
+Lab Assignment 1
+8/27/2014
+
+Step 4:
+
+  Date
+  this command displays the current date and time
+
+  ls -ltr
+  displays all file names and sorts them by least recently modified
+
+  cd ..
+  moves up one directory
+
+  pwd
+  shows the directory in which you are currently working
+
+  who
+  displays all of the users that are currently logged in
+
+  whoami
+  displays username
+
+  man man
+  displays the manual on man pages
+
+  Make a directroy named 'cs3308' and move into that directory
+  "mkdir cs3308" "cd cs3308"
+
+  Rename your directroy 'cs 3308' to 'csci3308'
+  "mv cs3308 csci3308"
+
+  Change to the root directory
+  "cd /"
+
+  Make a copy of a file
+  "cp fileName newFileName"
+
+  Delete the copy of your file
+  "rm newFileName"
+
+  Make a directory named 'tmp'. Then delete that directory
+  "mkdir tmp" "rmdir tmp"
+
+  View the contents of a file
+  "cat fileName"
+
+  2nd way to view the contents of a file
+  "more fileName"
+
+  View just the beginning of a file
+  "head fileName"
+
+  View just the end of a file
+  "tail fileName"
+
+  List all files that contain the word 'the' in the file
+  "cd Directory" "grep -lr the *"
+
+  List full path to all files named 'books.txt'
+  "readlink -f file.txt"
+
+  Zip the contents in your directory into a file named 'dir.zip'
+  "zip directoryName dir.zip"
+
+  Unzip your zipped file 'dir.zip' into a new directory name 'tmp'
+  "unzip dir.zip -d /tmp"
+
+  Tar the contents in your directory into a file named 'dir.tar'
+  "tar -cvf dir.tar directoryName"
+
+  Untar your zipped file 'dir.tar' into a new directory 'tmp'
+  "mkdir tmp" "tar -xjvf -C tmp dir.tar"
+  
+  Modify a file's last modified timestamp to now
+  "touch -t YYYYMMDDTTTT fileName"
+
+
+Step 5:
+
+  Sort the file based on the userid (first field)
+  "sort -n -t ":" -k1 /etc/passwd"
+
+  Sort the file based on the UID
+  "sort -n -t ":" -k3 /etc/passwd"
+
+  Sort first based on GID, then on UID
+  "sort -n -t ":" -k4 -k3 /etc/passwd"
+
+  Show all the lines in the file with 'Marx' in it
+  "grep Marx /etc/passwd"
+
+  Get the number of lines in the file
+  "wc -l /etc/passwd"
+
+  Print just the usernames
+  "awk -F: '{print $1}' /etc/passwd"
+
+  Print a unique list of GIDs
+  "awk -F: '{print $4}' /etc/passwd | uniq"
+
+  Redirect output from previous answer to a new file named 'tmp'
+  "awk -F: '{print $4}' /etc/passwd | uniq > tmp"
+
+  Try running "getUniqueGID.sh". Change the permissions on the file, why does the second run, and not the first? What is a second to change the permissions on the file?
+  In order to change the permissions on the file I used the command "chmod a+x getUniqueGID.sh". Using this command changed the file from "read-only" permission and gave myself permission to execute the file. I could not run the program before, because I did not have permission to execut it. A second way to change the permissions would have been to use the command "umask" to set default file permission, folowed by "touch" to update the file's permissions. One last way to have changed the permissions would have been to use the absolute form of "chmod".
+
+Step 9:
+
+Original Program:
+
+#include <math.h>					//C
+public static void main(String[] args) {		//Java?
+def letters(num):  		       			//Python
+int warp(int n) {					//C
+    n = "PUZZLEITWHATSUPIELETONTHEMAPTSEAGLOMOF7S"; 	//Java
+    double num = n;					//Java
+    int num;     					//Java?
+    while (num > 300)					//Python
+    if (args.length > 1)				//Python if
+       num -= 197; 	   				//C
+    while (num > 1): 					//Python hwile
+    	  place = warp(num); 				//Recursive call for warp
+	  num = Integer.valueOf(args[0]); 		//unknown
+	  letter = n[-place]; 				//unknown
+    else 	  					//python
+    	yield letter 					
+	if num % 7 == 0: 
+	   break					//python
+	num = 4096; 					//python
+	num = num // 2; 				//C
+    for (String letter : letters(num)) 			//Java
+    while (num > 60) 
+    	  System.out.print(letter);			//print out letters
+	  num = num/7; 				
+    System.out.println(); 				//Java print statement
+    return ceil(2 * num / 3); 				//C
+} 
+}
+
+
+Code Rewritten in Python:
+
+import math
+
+def main(args):
+	def letters(num):
+		def warp(n):
+			n = "PUZZLEITWHATSUPIELETONTHEMAPTSEAGLOMOF7S"
+			num = n
+			while(num > 300):
+				if(len(args) > 1):
+					num -= 197
+				while(num > 1):
+					place = warp(num)
+					num = args[0]
+					letter = n[-place]
+				else:
+					yield letter
+					if(num % 7 == 0):
+						break
+					num = 4096
+					num = num / 2
+				for x in range (letters):
+					letter = letters(x)
+					while(num > 60):
+						print(letter)
+						num = num/7
+					print()
+				a = math.ceil(2 * num / 3)
+		return a
+	return 0
+
+if __name__ == '__main__':
+	main()
+
+
+  Result of code: Prints out the letters from the string assigned to variable n in a certain pattern

@@ -1,0 +1,49 @@
+Joshua Rinaldi
+Lab Assignment 1
+8/27/2014
+
+Step 4:
+
+  Date
+  this command displays the current date and time
+
+  ls -ltr
+  displays all file names and sorts them by least recently modified
+
+  cd ..
+  moves up one directory
+
+  pwd
+  shows the directory in which you are currently working
+
+  who
+  displays all of the users that are currently logged in
+
+  whoami
+  displays username
+
+  man man
+  displays the manual on man pages
+
+  Make a directroy named 'cs3308' and move into that directory
+  "mkdir cs3308" "cd cs3308"
+
+  Rename your directroy 'cs 3308' to 'csci3308'
+  "mv cs3308 csci3308"
+
+  Change to the root directory
+  "cd /"
+
+  Make a copy of a file
+  "cp fileName newFileName"
+
+  Delete the copy of your file
+  "rm newFileName"
+
+  Make a directory named 'tmp'. Then delete that directory
+  "mkdir tmp" "rmdir tmp"
+
+  View the contents of a file
+  "cat fileName"
+
+  
