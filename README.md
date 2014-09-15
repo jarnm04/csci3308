@@ -1,4 +1,3 @@
 Joshua Rinaldi
 Git Version Control
-Partner: Lawrence, Carlos
-
+Partner: Carlos Lawrence
