@@ -1,0 +1,18 @@
+from flask import Flask
+app = Flask(__name__)
+app.config['DEBUG'] = True
+
+# Note: We don't need to call run() since our application is embedded within
+# the App Engine WSGI application server.
+
+
+@app.route('/')
+def hello():
+    """Return a friendly HTTP greeting."""
+    return '<HTML><BODY><pre>Joshua Rinaldi \n10/14/14 \nCSCI-3308\n \n \n#1 You would choose IaaS if you needed complete control over infrastructure. \n PaaS would be better used if you have a startup, because it allows you to get \n things up and running, without having to worry about the internals. A time that \n you would want to use IaaS over PaaS would be when you need to be able to make \n changes to the servers that are running your app. \n \n#2 You would not want all software to be migrated to the cloud because not everything \n on the cloud is secure, there is a chance that it could be accessed by people that \n you would rather keep out of it. The cloud also does not work too well with a slow \n internet connection, so people using it may run into troubles there as well.  </pre></BODY></HTML>'
+
+
+@app.errorhandler(404)
+def page_not_found(e):
+    """Return a custom 404 error."""
+    return 'Sorry, nothing at this URL.', 404

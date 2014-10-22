@@ -1,0 +1,28 @@
+<html>
+	<head>
+		<title>TEST</title>
+		<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+	</head>
+	<body>
+		<p>Hi Joshua Rinaldi</p>
+		<p>Day Count: <b id="DayCount">Day Count</b></p>
+		<p>Year Count: <b id="YearCount">Year Count</b></p>
+		<p>Date: <b id="Date">Date</b></p>
+	<script>
+		$(document).ready(function()
+		{
+			$.ajax({
+  				'url': 'http://apis.is/cyclecounter',
+  				'type': 'GET',
+  				'dataType': 'json',
+  				'success': function(response) {
+    				console.log(response);
+    				$('#DayCount').text(response.results[0].DayCount);
+    				$('#YearCount').text(response.results[0].YearCount);
+    				$('#Date').text(response.results[0].Time + " on " + response.results[0].Date);
+  				}
+			});
+		});
+	</script>
+	</body>
+</html>
