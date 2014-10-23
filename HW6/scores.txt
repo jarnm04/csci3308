@@ -6,4 +6,4 @@
 299226663 Laney Camp 70 74 71 
 434401929 Skyler Camp 78 81 82 
 928441032 Jess Forester 85 80 82 
-928441032 Chris Forester 97 94 89	
+928441032 Chris Forester 97 94 89
