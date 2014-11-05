@@ -1,0 +1,30 @@
+Joshua Rinaldi
+101902285
+Lab 10
+11/5/14
+
+Part 1
+
+2) After running the program, it shows that a seg fault occured
+4) The program crashes on line 89
+6) Add the following code:
+
+	coordinate_t* zero_pt = NULL;
+	pt = malloc(sizeof(pt));
+
+   to the beginning of the for loop that starts at line 87
+9) break zeroDist
+11) print other_pt->x
+    print other_pt->y
+12) I used 'clear' to remove the breakpoint and I used 'c' to continue
+
+
+Part 2
+
+2) The program is definitely losing 23,999,984 bytes and possibly
+   loses 16 bytes out of a total 24,000,000 bytes
+3) The problemed lines are: 41, 89, 93
+4) The problem is that space is being allocated, but then not being
+   freed after it is done being used. In order to fix this, just free
+   the space that has been allocated after the pointer is done being
+   used. I used the 'free()' function at lines 51 and 96.
