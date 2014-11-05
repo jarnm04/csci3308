@@ -28,3 +28,7 @@ Part 2
    freed after it is done being used. In order to fix this, just free
    the space that has been allocated after the pointer is done being
    used. I used the 'free()' function at lines 51 and 96.
+
+Part 3
+
+
