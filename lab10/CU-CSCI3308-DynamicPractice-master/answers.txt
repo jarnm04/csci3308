@@ -30,5 +30,20 @@ Part 2
    used. I used the 'free()' function at lines 51 and 96.
 
 Part 3
+1) Using 10,500,000 iterations, the program takes 1 second of real time
+   to run
+4) The 5 places the program spends the most time are:
+	1 - main
+	2 - ZeroDist
+	3 - malloc
+	4 - free
+	5 - _int_free
 
+6) Yes, the code can be made faster, by moving the malloc for pt and 
+   zero_pt outside of the for loop, as well as moving the free for 
+   each of these outside of the for loop. Because, while inside the
+   for loop, each of these four operations runs 10,500,000 times, but
+   being outside the for loop, they only need to run once.
 
+8) The new runtime is .49 seconds, which is less than half the time
+   that the program took to run originally.

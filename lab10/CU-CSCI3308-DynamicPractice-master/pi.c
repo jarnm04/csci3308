@@ -31,24 +31,14 @@ double dist(const coordinate_t* pt_a, const coordinate_t* pt_b){
     return sqrt(pow((pt_a->x - pt_b->x), 2) + pow((pt_a->y - pt_b->y), 2));
 }
 
-double zeroDist(const coordinate_t* other_pt){
+double zeroDist(const coordinate_t* other_pt, const coordinate_t* zero_pt){
 
     /* Local vars */
     double d = 0.0;
-    coordinate_t* zero_pt = NULL;
-
-    /* Create new zero point */
-    zero_pt = malloc(sizeof(*zero_pt));
-    if(!zero_pt){
-        fprintf(stderr, "Malloc failed\n");
-        return NAN;
-    }
-    zero_pt->x = 0.0;
-    zero_pt->y = 0.0;
 
     /* Calculate Distance */
     d = dist(zero_pt, other_pt);
-    free(zero_pt);
+    
     /* Return distance */
     return d;
 
@@ -83,19 +73,33 @@ int main(int argc, char* argv[]){
     /* Seed RNG */
     srand(time(NULL));
 
+     coordinate_t* zero_pt = NULL;
+
+    /* Create new zero point */
+    zero_pt = malloc(sizeof(*zero_pt));
+    if(!zero_pt){
+        fprintf(stderr, "Malloc failed\n");
+        return NAN;
+    }
+    zero_pt->x = 0.0;
+    zero_pt->y = 0.0;
+
+    pt = malloc(sizeof(pt));
+
     /* Calculate pi using statistical methode across all iterations*/
     for(i=0; i<iterations; i++){
-	coordinate_t* pt = NULL;
-	pt = malloc(sizeof(pt));
         /* todo: remember to allocate pt */
         pt->x = (rand() % (RADIUS * 2)) - RADIUS;
         pt->y = (rand() % (RADIUS * 2)) - RADIUS;
-        if(zeroDist(pt) < RADIUS){
+        if(zeroDist(pt, zero_pt) < RADIUS){
             inCircle++;
         }
-	free(pt);
         inSquare++;
     }
+
+    free(pt);
+
+    free(zero_pt);
 
     /* Finish calculation */
     pCircle = (double) inCircle / (double) inSquare;
